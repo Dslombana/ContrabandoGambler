@@ -1,0 +1,322 @@
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* FONDO HUMO ANIMADO */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140%;
+  height: 140%;
+  background: url("humo.png") no-repeat center center/cover;
+  opacity: 0.18;
+  filter: blur(4px);
+  animation: moveSmoke 18s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes moveSmoke {
+  0% { transform: translate(-40px, -40px) scale(1.1); }
+  100% { transform: translate(40px, 40px) scale(1.2); }
+}
+body {
+    margin: 0;
+    background: #0a0a0a;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.logo {
+    width: 400px;      /* Puedo cambiar el tamaño aquí */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.titulo {
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.subtitulo {
+    font-size: 18px;
+    color: #cfcfcf;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    line-height: 1.4;
+}
+.btn-entrar {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;                 /* Texto negro */
+    background-color: #fff;      /* Fondo blanco */
+    border: 2px solid #fff;      /* Borde blanco */
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.btn-entrar:hover {
+    background-color: #25a4ff;   /* Azul al pasar */
+    border-color: #25a4ff;
+    color: #000;                 /* Texto negro */
+    transform: scale(1.05);
+}
+.beneficios {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.beneficio {
+    background-color: #111;
+    border: 1px solid #2a2a2a;
+    width: 220px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.beneficio:hover {
+    transform: translateY(-6px);
+    border-color: #e4e6e7;
+}
+
+.beneficio img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.beneficio h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.beneficio p {
+    font-size: 14px;
+    color: #ccc;
+}
+.telegram-download {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tg-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 350px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.tg-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+}
+
+.tg-icon {
+    width: 80px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.tg-box h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.tg-box p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+.tg-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #0088cc;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background .3s ease, transform .3s ease;
+}
+
+.tg-btn:hover {
+    background: #00aaff;
+    transform: scale(1.05);
+}
+.why-us {
+  text-align: center;
+  margin: 60px 0 30px 0;
+  padding: 0 20px;
+}
+
+.why-us h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff; /* Cambia si tu fondo es claro */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.why-us p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #cccccc; /* Tono suave */
+  line-height: 1.6;
+}
+/* Storytelling base */
+.storytelling {
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.storytelling h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.storytelling p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Fade in animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+#cupos-box {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  padding: 24px 30px;
+  border-radius: 18px;
+  margin: 35px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: rgb(240, 240, 240);
+  font-size: 26px;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s ease;   /* <-- necesario para animación */
+  cursor: pointer;             /* ahora es clickeable */
+}
+a {
+    text-decoration: none;
+}
+.titulo-testimonios {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.carousel {
+    width: 600px;
+    height: 800px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+#cupos-box {
+    text-align: center;        /* Centra todo */
+    display: flex;
+    flex-direction: column;    /* Fuerza que el texto esté arriba y el número abajo */
+    align-items: center;
+}
+
+#cupos-text {
+    font-size: 18px;
+    color: #fff;
+}
+
+#cupos-num {
+    font-size: 32px;
+    color: #f5f5f5;
+    font-weight: bold;
+    margin-top: 6px;
+}
