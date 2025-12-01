@@ -66,16 +66,16 @@ body {
     font-weight: bold;
     text-decoration: none;
     color: #000;                 /* Texto negro */
-    background-color: #fff;      /* Fondo blanco */
-    border: 2px solid #fff;      /* Borde blanco */
+    background-color: #fff;      
+    border: 2px solid #fff;      
     border-radius: 8px;
     transition: 0.25s;
 }
 
 .btn-entrar:hover {
-    background-color: #25a4ff;   /* Azul al pasar */
+    background-color: #25a4ff;  
     border-color: #25a4ff;
-    color: #000;                 /* Texto negro */
+    color: #000;                 
     transform: scale(1.05);
 }
 .beneficios {
@@ -181,7 +181,7 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #fff; /* Cambia si tu fondo es claro */
+  color: #fff; 
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -190,10 +190,10 @@ body {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
-  color: #cccccc; /* Tono suave */
+  color: #cccccc; 
   line-height: 1.6;
 }
-/* Storytelling base */
+
 .storytelling {
   max-width: 800px;
   margin: 100px auto;
@@ -242,8 +242,8 @@ body {
   font-weight: 800;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   text-align: center;
-  transition: all 0.2s ease;   /* <-- necesario para animación */
-  cursor: pointer;             /* ahora es clickeable */
+  transition: all 0.2s ease;   
+  cursor: pointer;             
 }
 a {
     text-decoration: none;
@@ -303,9 +303,9 @@ a {
     right: 10px;
 }
 #cupos-box {
-    text-align: center;        /* Centra todo */
+    text-align: center;        
     display: flex;
-    flex-direction: column;    /* Fuerza que el texto esté arriba y el número abajo */
+    flex-direction: column;    
     align-items: center;
 }
 
@@ -319,4 +319,136 @@ a {
     color: #f5f5f5;
     font-weight: bold;
     margin-top: 6px;
+}
+@media (max-width: 480px) {
+
+    body {
+        padding: 0 10px;
+    }
+
+    /* LOGO */
+    .logo {
+        width: 80%;
+        max-width: 260px;
+        margin-top: 10px;
+    }
+
+    /* TITULOS */
+    .titulo {
+        font-size: 24px;
+    }
+
+    .subtitulo {
+        font-size: 15px;
+        max-width: 90%;
+    }
+
+    /* BOTÓN ENTRAR */
+    .btn-entrar {
+        padding: 12px 22px;
+        font-size: 16px;
+        border-radius: 6px;
+        margin-top: 20px;
+    }
+
+    /* BENEFICIOS */
+    .beneficios {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        margin-top: 40px;
+    }
+
+    .beneficio {
+        width: 90%;
+        padding: 18px;
+    }
+
+    .beneficio img {
+        width: 120px;
+    }
+
+    /* TELEGRAM BOX */
+    .telegram-download {
+        padding: 30px 0;
+    }
+
+    .tg-box {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .tg-icon {
+        width: 65px;
+    }
+
+    .tg-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .tg-box p {
+        font-size: 0.9rem;
+    }
+
+    .tg-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* WHY US */
+    .why-us h2 {
+        font-size: 1.8rem;
+    }
+
+    .why-us p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    /* STORYTELLING */
+    .storytelling h2 {
+        font-size: 1.7rem;
+    }
+
+    .storytelling p {
+        font-size: 1rem;
+    }
+
+    /* CUPOS BOX */
+    #cupos-box {
+        max-width: 90%;
+        font-size: 20px;
+        padding: 18px 20px;
+    }
+
+    #cupos-text {
+        font-size: 16px;
+    }
+
+    #cupos-num {
+        font-size: 26px;
+    }
+
+    /* TESTIMONIOS */
+    .titulo-testimonios {
+        font-size: 1.6rem;
+        margin-top: 40px;
+    }
+
+    /* CARRUSEL */
+    .carousel {
+        width: 100%;
+        height: 420px;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .carousel-images img {
+        object-fit: contain;
+    }
+
+    .prev, .next {
+        padding: 8px 14px;
+        font-size: 18px;
+    }
 }
