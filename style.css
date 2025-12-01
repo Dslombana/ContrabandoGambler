@@ -452,3 +452,39 @@ a {
         font-size: 18px;
     }
 }
+#boton-elegante {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #111;
+    color: #f5c518;
+    padding: 20px 25px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.5);
+    z-index: 999999;
+}
+
+#boton-btn {
+    background: #f5c518;
+    color: #111;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icono-btn {
+    width: 24px;
+    height: 24px;
+}

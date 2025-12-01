@@ -1,101 +1,71 @@
-console.log("JS funcionando…");
+console.log("app.js cargado");
 
-// Fade in reversible
-function revealOnScroll() {
-  const elements = document.querySelectorAll('.reveal');
-
-  elements.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    const elementBottom = el.getBoundingClientRect().bottom;
-
-    const revealPoint = 150;
-
-    // Si el elemento está dentro de la pantalla → activar
-    if (elementTop < windowHeight - revealPoint && elementBottom > revealPoint) {
-      el.classList.add('active');
-    } 
-    // Si sale de la pantalla → desactivar
-    else {
-      el.classList.remove('active');
-    }
-  });
+// ----- HELPERS -----
+function safeQuery(selector) {
+  try { return document.querySelector(selector); }
+  catch(e) { return null; }
 }
-// --- REVEAL ON SCROLL ---
-function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
-
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        
-        if (elementTop < windowHeight - 100) {
-            el.classList.add("active");
-        } else {
-            el.classList.remove("active");
-        }
-    });
+function safeQueryAll(selector) {
+  try { return Array.from(document.querySelectorAll(selector)); }
+  catch(e) { return []; }
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+// ----- REVEAL ON SCROLL (simple y seguro) -----
+function revealOnScroll() {
+  const reveals = safeQueryAll('.reveal');
+  const windowH = window.innerHeight;
+  for (const el of reveals) {
+    const r = el.getBoundingClientRect();
+    if (r.top < windowH - 100) el.classList.add('active'); else el.classList.remove('active');
+  }
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('resize', revealOnScroll);
+document.addEventListener('DOMContentLoaded', revealOnScroll);
 
-
-// --- CONTADOR DE CUPOS ---
+// ----- CUPOS (si existe) -----
 document.addEventListener("DOMContentLoaded", () => {
+  const cuposNumEl = safeQuery('#cupos-num');
+  const cuposBox = safeQuery('#cupos-box');
+  if (!cuposNumEl || !cuposBox) return; // nada que hacer si no existe
 
-    let cupos = 88;
+  let cupos = 88;
+  function disminuirCupos() {
+    if (cupos > 5) cupos -= Math.floor(Math.random() * 3) + 1;
+    else if (cupos > 0) cupos -= 1;
+    if (cupos < 0) cupos = 0;
 
-    function disminuirCupos() {
-        if (cupos > 5) {
-            let restar = Math.floor(Math.random() * 3) + 1;
-            cupos -= restar;
-        } else if (cupos > 0) {
-            cupos -= 1;
-        }
+    cuposNumEl.textContent = cupos;
+    cuposBox.classList.remove('cupos-medio','cupos-bajo');
+    if (cupos <= 5) cuposBox.classList.add('cupos-bajo');
+    else if (cupos <= 20) cuposBox.classList.add('cupos-medio');
+  }
 
-        if (cupos < 0) cupos = 0;
+  // reduzco solo si la pestaña está visible
+  const intervalId = setInterval(() => {
+    if (document.visibilityState === 'visible') disminuirCupos();
+  }, 4000);
 
-        document.getElementById("cupos-num").textContent = cupos;
-
-        const box = document.getElementById("cupos-box");
-        box.classList.remove("cupos-medio", "cupos-bajo");
-
-        if (cupos <= 5) {
-            box.classList.add("cupos-bajo");
-        } else if (cupos <= 20) {
-            box.classList.add("cupos-medio");
-        }
-    }
-
-    setInterval(disminuirCupos, 4000);
-
-    // CLICK FUNCIONAL REAL
-    document.getElementById("cupos-box").addEventListener("click", () => {
-        window.location.href = "https://t.me/+XoTRgKcR52I0NzYx";
-    });
-
+  // click seguro
+  cuposBox.addEventListener('click', () => {
+    window.open("https://t.me/+XoTRgKcR52I0NzYx", "_blank");
+  });
 });
-function irAlCanal() {
-    window.location.href = "https://t.me/+XoTRgKcR52I0NzYx";
-}
-const images = document.querySelectorAll('.carousel-images img');
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
 
-let index = 0;
+// ----- CARRUSEL (seguro si existen controles/imagenes) -----
+document.addEventListener("DOMContentLoaded", () => {
+  const images = safeQueryAll('.carousel-images img');
+  const prev = safeQuery('.prev');
+  const next = safeQuery('.next');
 
-function showImage(i) {
+  if (images.length === 0 || !prev || !next) return;
+
+  let idx = 0;
+  function show(i){
     images.forEach(img => img.classList.remove('active'));
     images[i].classList.add('active');
-}
-
-next.addEventListener('click', () => {
-    index = (index + 1) % images.length;
-    showImage(index);
+  }
+  next.addEventListener('click', () => { idx = (idx+1) % images.length; show(idx); });
+  prev.addEventListener('click', () => { idx = (idx-1+images.length) % images.length; show(idx); });
 });
 
-prev.addEventListener('click', () => {
-    index = (index - 1 + images.length) % images.length;
-    showImage(index);
-});
