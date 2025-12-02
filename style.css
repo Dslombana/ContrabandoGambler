@@ -488,3 +488,13 @@ a {
     width: 24px;
     height: 24px;
 }
+/* espacio extra al final de la página */
+body::after {
+  content: "";
+  display: block;
+  height: 140px; /* ajusta */
+  width: 100%;
+}
+@media (max-width: 480px) {
+  body::after { height: 180px; }
+}
